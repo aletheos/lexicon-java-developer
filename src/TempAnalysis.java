@@ -1,5 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import static java.lang.System.*;
 
@@ -11,7 +9,7 @@ public class TempAnalysis {
 		double[] weeklyTemp = new double[weekDays.length];
 		double totalTemp = 0d;
 		for (int i = 0; i < weekDays.length; ++i) {
-			System.out.print("Input temperature(in °C) for " + weekDays[i] + ": ");
+			out.print("Input temperature(in °C) for " + weekDays[i] + ": ");
 			double temp = Double.parseDouble(sc.nextLine().replace(',', '.'));
 			weeklyTemp[i] = temp;
 			totalTemp += temp;
@@ -19,7 +17,7 @@ public class TempAnalysis {
 
 		double avgTemp = 0d;
 		avgTemp = totalTemp / weekDays.length;
-		System.out.printf("Weekly average temperature is %.2f%n", avgTemp);
+		out.printf("Weekly average temperature is %.2f%n", avgTemp);
 
 
 		double highestTemp = Double.MIN_VALUE, lowestTemp = Double.MAX_VALUE;
@@ -32,7 +30,20 @@ public class TempAnalysis {
 		out.printf("The highest temperature this week was %s(%.1f°C)%n", highestDay, highestTemp);
 		out.printf("The lowest temperature this week was %s(%.1f°C)%n", lowestDay, lowestTemp);
 
-
-		//for (int y = 0; y < 10; )
+		int daysOverTwenty = 0;
+		for (var temp : weeklyTemp) { if(temp >= 20d) { ++daysOverTwenty; } }
+		out.printf("There were %d days that were 20°C or more this week.%n", daysOverTwenty);
+		out.printf("Press <Enter> to draw temperature graph..."); sc.nextLine();
+		String[] rows = new String[25];
+		for (int y = 0; y < rows.length; y++) {
+			String row = "";
+			for (int x = 0; x < weekDays.length; x++) {
+				row += weeklyTemp[x] >= 2*y ? "**********" : "          ";
+			}
+			if (y % 4 == 0) { row += " " + y*2 + "°C"; }
+			rows[rows.length - 1 - y] = row;
+		}
+		for (var row : rows) { out.printf("%s%n", row); }
+		for (var day : weekDays) { out.printf("%-10s", day); }
 	}
 }
