@@ -1,3 +1,5 @@
+package dag_2;
+
 import java.util.Scanner;
 import static java.lang.System.*;
 

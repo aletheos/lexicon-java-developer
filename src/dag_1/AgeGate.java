@@ -1,3 +1,5 @@
+package dag_1;
+
 import java.util.Scanner;
 
 public class AgeGate {

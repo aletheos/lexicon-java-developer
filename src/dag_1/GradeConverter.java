@@ -1,3 +1,5 @@
+package dag_1;
+
 public class GradeConverter {
 	public static void main(String[] args) {
 		double score = Double.parseDouble(args[0]);
