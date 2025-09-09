@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Calculator {
@@ -14,7 +15,7 @@ public class Calculator {
 
 			String[] arrStrings = input.split(" ");
 			if (arrStrings.length != 3 || arrStrings[1].length() > 1) {
-				System.out.println("Illegal input: Too many or too few operands entered!\nDid you remember spaces between symbols?\n");
+				System.out.println("Illegal input: Too many or too few operands entered!\nSeparate your inputs with spaces.\n");
 				continue;
 			}
 			try {
@@ -31,8 +32,11 @@ public class Calculator {
 					continue;
 				}
 			}
-
-			System.out.println("Everything is A-OK!");
+			// spännande grej, testa i ett äventyrsspel någon gång
+			//for (Scanner s = new Scanner(System.in); s.hasNext(); System.out.print(s.next())) {}
+			double rng = new Random(0xDEAFD011L).nextDouble()*1000000;
+			System.out.println(rng);
+			System.out.println(Math.floor(rng/100%10));
 			exit = true;
 		}
 	}
