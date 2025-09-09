@@ -13,7 +13,7 @@ public class StudentGrades {
 		"Physical Education"
 	};
 	public static void main(String[] args) {
-		ArrayList<String> students = new ArrayList<String>();
+		ArrayList<String> students = new ArrayList<>();
 		Scanner sc = new Scanner(in);
 
 		for (int studentID = 0; ; ++studentID) {
