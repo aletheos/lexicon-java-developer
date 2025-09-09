@@ -2,7 +2,7 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-.editorconfig
+**/.editorconfig
 
 ### Eclipse ###
 .apt_generated
