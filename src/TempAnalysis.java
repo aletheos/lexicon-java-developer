@@ -38,12 +38,14 @@ public class TempAnalysis {
 		for (int y = 0; y < rows.length; y++) {
 			String row = "";
 			for (int x = 0; x < weekDays.length; x++) {
-				row += weeklyTemp[x] >= 2*y ? "**********" : "          ";
+				row += weeklyTemp[x] >= 2*y ? "██████████" : "          ";
 			}
 			if (y % 4 == 0) { row += " " + y*2 + "°C"; }
 			rows[rows.length - 1 - y] = row;
 		}
 		for (var row : rows) { out.printf("%s%n", row); }
 		for (var day : weekDays) { out.printf("%-10s", day); }
+		out.printf("%n");
+		for (var temp : weeklyTemp) { out.printf("%-10.1f", temp); }
 	}
 }
