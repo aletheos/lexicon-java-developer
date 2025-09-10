@@ -15,7 +15,6 @@ public class StudentGrades {
 	public static void main(String[] args) {
 		ArrayList<String> students = new ArrayList<>();
 		Scanner sc = new Scanner(in);
-
 		for (int studentID = 0; ; ++studentID) {
 			out.printf("Enter name of Student #%d, then press <Enter> when done: ", studentID);
 			String studentName = sc.nextLine();
