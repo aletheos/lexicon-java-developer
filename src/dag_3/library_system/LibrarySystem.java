@@ -16,7 +16,8 @@ public class LibrarySystem {
 		ArrayList<String> borrowedBooks  = new ArrayList<>();
 		ArrayList<String> userNames     = new ArrayList<>();
 		ArrayList<String> phoneNumbers  = new ArrayList<>();
-// TEST DATA
+
+		// TEST DATA -- BEGIN
 		bookTitles.add("Harry Potter");
 		bookTitles.add("Sagan om ringen");
 		bookTitles.add("1984");
@@ -37,7 +38,8 @@ public class LibrarySystem {
 // Fördefinierat lån
 		borrowerNames.add("Anna");
 		borrowedBooks.add("333"); // Anna har lånat 1984
-// PROGRAM BEGINS
+// TEST DATA -- END
+
 		Scanner sc = new Scanner(in);
 		boolean exit = false;
 		while (!exit) {
