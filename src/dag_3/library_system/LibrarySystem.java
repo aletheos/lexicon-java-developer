@@ -12,12 +12,12 @@ public class LibrarySystem {
 		ArrayList<String>  bookISBN      = new ArrayList<>();
 		ArrayList<Boolean> bookAvailable = new ArrayList<>();
 
-		ArrayList<String> borrowerNames = new ArrayList<>();
-		ArrayList<String> borrowedBooks  = new ArrayList<>();
-		ArrayList<String> userNames     = new ArrayList<>();
-		ArrayList<String> phoneNumbers  = new ArrayList<>();
+		ArrayList<String>  borrowerNames = new ArrayList<>();
+		ArrayList<String>  borrowedBooks = new ArrayList<>();
+		ArrayList<String>  userNames     = new ArrayList<>();
+		ArrayList<String>  phoneNumbers  = new ArrayList<>();
 
-		// TEST DATA -- BEGIN
+// TEST DATA -- BEGIN
 		bookTitles.add("Harry Potter");
 		bookTitles.add("Sagan om ringen");
 		bookTitles.add("1984");
@@ -49,7 +49,7 @@ public class LibrarySystem {
 
 			switch (choice) {
 				case 1:
-					displayAllBooks(bookTitles, bookAuthors, bookISBN);
+					displayAllBooks(bookTitles, bookAuthors, bookISBN, bookAvailable);
 					break;
 				case 2:
 					out.printf("Titel: ");
@@ -58,14 +58,19 @@ public class LibrarySystem {
 					String author = sc.nextLine();
 					out.printf("ISBN: ");
 					String isbn = sc.nextLine();
-					addBook(bookTitles, bookAuthors, bookISBN, title, author, isbn);
+					addBook(bookTitles, bookAuthors, bookISBN, title, author, isbn, bookAvailable);
 					break;
 				case 3:
-					//borrowBook(bookAvailable, borrowerNames, borrowedBooks, /*?*/, borrowerName, bookISBN);
+					out.printf("Låntagarens namn: ");
+					String borrowerName = sc.nextLine();
+					out.printf("Bokens index: ");
+					int bookIndex = Integer.parseInt(sc.nextLine());
+					borrowBook(bookAvailable, borrowerNames, borrowedBooks, bookIndex, borrowerName, bookISBN);
 					break;
 				case 4:
 					break;
 				case 0:
+					exit = true;
 					break;
 			}
 		}
@@ -98,7 +103,8 @@ public class LibrarySystem {
 		ArrayList<String> isbn,
 		String title,
 		String author,
-		String isbnNumber
+		String isbnNumber,
+		ArrayList<Boolean> available
 	) {
 		/**
 		 * TODO:
@@ -107,18 +113,21 @@ public class LibrarySystem {
 		titles.add(title);
 		authors.add(author);
 		isbn.add(isbnNumber);
+		/**
+		 * TODO:
+		 * Refactor this so that the add book method doesn't have to be aware of available books
+		 */
+		available.add(true);
 	}
 
 	public static void displayAllBooks(
 		ArrayList<String> titles,
 		ArrayList<String> authors,
-		ArrayList<String> isbn
+		ArrayList<String> isbn,
+		ArrayList<Boolean> available
 	) {
-		/** TODO:
-		 * For each index of 'titles' print a compiled string of 'title + author + isbn'
-		 * */
 		for (int i = 0; i < titles.size(); i++) {
-			System.out.println("Book: " + titles.get(i) + ", by author: " + authors.get(i) + ".\nISBN: " + isbn.get(i));
+			out.printf("%d: %s av %s, ISBN: %s, %s%n", i, titles.get(i), authors.get(i), isbn.get(i), available.get(i) ? "INNE" : "UTLÅNAD");
 		}
 	}
 
