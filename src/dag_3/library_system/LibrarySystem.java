@@ -136,14 +136,13 @@ public class LibrarySystem {
 		System.out.println("No book, or author with the title/name of : " + searchTerm + " exists in the library");
 		return -1;
 	}
-	// VALENTIN'S DEL ÖVER 👆🏽
-
 	/**
+	 * VALENTIN'S DEL ÖVER 👆🏽
 	 * ArrayList<Boolean> available - true/false
 	 * ArrayList<String> borrowers - Namn på alla som lånar en book
 	 * ArrayList<String> borrowedBooks - ISBN-nummer (bok-ID)
 	 * int bookIndex
-	 * String borrowerName Namn på den som lånat boken
+	 * String borrowerName - Namn på den som lånat boken
 	 */
 	public static boolean borrowBook(ArrayList<Boolean> available, ArrayList<String> borrowers, ArrayList<String> borrowedBooks, int bookIndex, String borrowerName, ArrayList<String> isbnBooks) {
 
