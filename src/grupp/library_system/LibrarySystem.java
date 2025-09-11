@@ -1,4 +1,4 @@
-package dag_3.library_system;
+package grupp.library_system;
 
 import java.util.ArrayList;
 import java.util.Scanner;
