@@ -47,27 +47,32 @@ public class LibrarySystem {
 			int choice = sc.nextInt();
 			sc.nextLine(); // Takes care of trailing newline
 
+			int bookIndex;
+			String borrowerName, title, author, isbn;
 			switch (choice) {
 				case 1:
 					displayAllBooks(bookTitles, bookAuthors, bookISBN, bookAvailable);
 					break;
 				case 2:
-					out.printf("Titel: ");
-					String title = sc.nextLine();
-					out.printf("Författare: ");
-					String author = sc.nextLine();
-					out.printf("ISBN: ");
-					String isbn = sc.nextLine();
+					out.print("Titel: ");
+					title = sc.nextLine();
+					out.print("Författare: ");
+					author = sc.nextLine();
+					out.print("ISBN: ");
+					isbn = sc.nextLine();
 					addBook(bookTitles, bookAuthors, bookISBN, title, author, isbn, bookAvailable);
 					break;
 				case 3:
-					out.printf("Låntagarens namn: ");
-					String borrowerName = sc.nextLine();
-					out.printf("Bokens index: ");
-					int bookIndex = Integer.parseInt(sc.nextLine());
+					out.print("Låntagarens namn: ");
+					borrowerName = sc.nextLine();
+					out.print("Bokens index: ");
+					bookIndex = Integer.parseInt(sc.nextLine());
 					borrowBook(bookAvailable, borrowerNames, borrowedBooks, bookIndex, borrowerName, bookISBN);
 					break;
 				case 4:
+					out.print("Bokens ISBN: ");
+					isbn = sc.nextLine();
+					returnBook(bookAvailable, borrowerNames, borrowedBooks, bookISBN);
 					break;
 				case 0:
 					exit = true;
@@ -75,16 +80,17 @@ public class LibrarySystem {
 			}
 		}
 	}
+
 	public static void displayMainMenu() {
-		out.printf(
+		out.print(
 			"""
-			%n──── Biblitoekssystem ────%n
-					1. Visa alla böcker
-					2. Lägg till bok
-					3. Låna bok
-					4. Återlämna bok
-					5. Visa statistik
-					0. Avsluta
+			──── Biblitoekssystem ────
+			  1. Visa alla böcker
+			  2. Lägg till bok
+			  3. Låna bok
+			  4. Återlämna bok
+			  5. Visa statistik
+			  0. Avsluta
 			"""
 		);
 	}
@@ -166,9 +172,13 @@ public class LibrarySystem {
 		return true;
 	}
 
-	public static boolean returnBook(ArrayList<Boolean> available, ArrayList<String> borrowers, ArrayList<String> borrowedBooks, String isbnNumber) {
+	public static boolean returnBook(ArrayList<Boolean> available, ArrayList<String> borrowers, ArrayList<String> borrowedBooks, ArrayList<String> isbnNumbers) {
 
-		int index = borrowedBooks.indexOf(isbnNumber);
+		for (String s : bookISBN) {
+
+		}
+
+		int index = borrowedBooks.indexOf(isbnNumbers);
 
 		if (index < 0) {
 			return false;
