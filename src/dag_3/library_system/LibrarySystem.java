@@ -30,6 +30,16 @@ public class LibrarySystem {
 		bookAvailable.add(true);
 		bookAvailable.add(true);
 		bookAvailable.add(false); // 1984 är utlånad
+
+		addBook(bookTitles, bookAuthors, bookISBN, "The Glass Harbor",           "Elena Marlowe",      "9781234567897", bookAvailable);
+		addBook(bookTitles, bookAuthors, bookISBN, "Clockwork Dunes",            "Rafael Ibarra",      "9789876543217", bookAvailable);
+		addBook(bookTitles, bookAuthors, bookISBN, "Embers in the Snow",         "Nora Valente",       "9783141592658", bookAvailable);
+		addBook(bookTitles, bookAuthors, bookISBN, "The Moonlit Ledger",         "Priya Kapoor",       "9782718281827", bookAvailable);
+		addBook(bookTitles, bookAuthors, bookISBN, "Echoes of Brass",            "Jonas Lindstrom",    "9781618033987", bookAvailable);
+		addBook(bookTitles, bookAuthors, bookISBN, "A Map of Small Storms",      "Lila Andersen",      "9782468013570", bookAvailable);
+		addBook(bookTitles, bookAuthors, bookISBN, "Rivers of Static",           "Omar Haddad",        "9781357924683", bookAvailable);
+		addBook(bookTitles, bookAuthors, bookISBN, "Between Wolves and Wind",    "Sanna Koivu",        "9781123581324", bookAvailable);
+		addBook(bookTitles, bookAuthors, bookISBN, "The Orchard at Night",       "Miles Harrigan",     "9784242424244", bookAvailable);
 // Fördefinierade användare
 		userNames.add("Anna");
 		userNames.add("Erik");
@@ -74,6 +84,8 @@ public class LibrarySystem {
 					isbn = sc.nextLine();
 					returnBook(bookAvailable, borrowerNames, borrowedBooks, bookISBN, isbn);
 					break;
+				case 5:
+					displayLibraryStatistics(bookTitles, bookAvailable,userNames);
 				case 0:
 					exit = true;
 					break;
@@ -121,7 +133,7 @@ public class LibrarySystem {
 		isbn.add(isbnNumber);
 		/**
 		 * TODO:
-		 * Refactor this so that the add book method doesn't have to be aware of available books
+		 * Refactor this so that the add book method doesn't have to be aware of available books?
 		 */
 		available.add(true);
 	}
