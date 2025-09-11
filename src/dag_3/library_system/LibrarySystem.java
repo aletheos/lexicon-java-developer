@@ -72,7 +72,7 @@ public class LibrarySystem {
 				case 4:
 					out.print("Bokens ISBN: ");
 					isbn = sc.nextLine();
-					returnBook(bookAvailable, borrowerNames, borrowedBooks, bookISBN);
+					returnBook(bookAvailable, borrowerNames, borrowedBooks, bookISBN, isbn);
 					break;
 				case 0:
 					exit = true;
@@ -172,22 +172,15 @@ public class LibrarySystem {
 		return true;
 	}
 
-	public static boolean returnBook(ArrayList<Boolean> available, ArrayList<String> borrowers, ArrayList<String> borrowedBooks, ArrayList<String> isbnNumbers) {
-
-		for (String s : bookISBN) {
-
-		}
-
-		int index = borrowedBooks.indexOf(isbnNumbers);
-
-		if (index < 0) {
+	public static boolean returnBook(ArrayList<Boolean> available, ArrayList<String> borrowers, ArrayList<String> borrowedBooks, ArrayList<String> isbnNumbers, String isbn) {
+		int isbnIndex = isbnNumbers.indexOf(isbn);
+		int borrowedIndex = borrowedBooks.indexOf(isbn);
+		if (isbnIndex < 0 || borrowedIndex < 0) {
 			return false;
 		}
-		available.set(index, true);
-
-		borrowedBooks.remove(index);
-		borrowers.remove(index);
-
+		borrowedBooks.remove(borrowedIndex);
+		borrowers.remove(borrowedIndex);
+		available.set(isbnIndex, true);
 		return true;
 	}
 
