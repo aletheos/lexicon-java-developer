@@ -1,7 +1,11 @@
 package dag_3.class_statistics;
 
 import java.util.ArrayList;
+import static java.lang.System.*;
 
+/**
+ * A student registry, allowing the user to show exam scores and grades
+ */
 public class ClassStatistics {
 	final ArrayList<Student> students;
 
@@ -11,12 +15,25 @@ public class ClassStatistics {
 
 	public void run() {
 		// Display average exam results
+		displayExamScores();
 		// Display highest / lowest exam results
 		// Display names of student with highest and lowest exam results
 		// Sort students by exam results
 		// List all students with higher than average exam results
 		// Let user search for student name and show that student's exam results
 		// Convert exam results to grades (A—F)
+	}
+
+	private void displayExamScores() {
+		int avgResults = getAverageExamscores();
+	}
+
+	private int getAverageExamscores() throws IllegalArgumentException {
+		int totalResults = 0;
+		for (var student : students) {
+			totalResults += student.getExamResult();
+		}
+		return (int)((double)totalResults / students.size());
 	}
 
 	public static void main(String[] args) {
