@@ -21,7 +21,6 @@ public class TempAnalysis {
 		avgTemp = totalTemp / weekDays.length;
 		out.printf("Weekly average temperature is %.2f%n", avgTemp);
 
-
 		double highestTemp = Double.MIN_VALUE, lowestTemp = Double.MAX_VALUE;
 		String highestDay = "", lowestDay = "";
 		for (int i = 0; i < weekDays.length; ++i) {
