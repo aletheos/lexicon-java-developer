@@ -10,16 +10,17 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Main {
+	private static final Scanner SCANNER = new Scanner(System.in);
 	private static final Pattern ILLEGAL_CHARS = Pattern.compile("[\\\\/:*?\"<>|]");
 
 	public static void main(String[] args) {
-		try (Scanner sc = new Scanner(System.in)) {
+		try {
 			String fileName = getFileName(args);
 			Path logPath = getPath(fileName);
 
 			Logger.getInstance().log("Hellow 'earled :3");
 			Logger.getInstance().log("ÚwÙ wut dis?!", logPath);
-			Logger.getInstance().log(sc.nextLine(), logPath);
+			Logger.getInstance().log(SCANNER.nextLine(), logPath);
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
