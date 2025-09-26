@@ -18,12 +18,23 @@ public class Main {
 			String fileName = getFileName(args);
 			Path logPath = getPath(fileName);
 
-			Logger.getInstance().log("Hellow 'earled :3");
-			Logger.getInstance().log("ÚwÙ wut dis?!", logPath);
+			drawPrompt();
 			Logger.getInstance().log(SCANNER.nextLine(), logPath);
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
+	}
+
+	private static void drawPrompt() {
+		System.out.print(
+			"""
+			\033[H\033[2J
+			────────┐        ┌────────
+			▓▒░ »   │ LOGGER │ «   ░▒▓
+			────────┘        └────────
+			Type text into logger: 
+			""".stripTrailing()
+		);
 	}
 
 	private static String getFileName(String[] args) {
