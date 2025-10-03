@@ -6,7 +6,7 @@ public record Magazine(String name) implements Observer {
 		System.out.printf(
 			"""
 			▄▀▄▀ %s ▄▀▄▀
-			Anonymous sources state:
+			Anonymous sources within the state department say:
 			%s
 			
 			How will this affect the royal wedding?

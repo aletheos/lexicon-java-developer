@@ -5,7 +5,7 @@ import dag_15.observer.observers.Observer;
 import java.util.HashSet;
 
 public class NewsAgency {
-	private HashSet<Observer> subscribers = new HashSet<>();
+	private final HashSet<Observer> subscribers = new HashSet<>();
 
 	private HashSet<Observer> getSubscribers() {
 		return subscribers;
@@ -22,7 +22,11 @@ public class NewsAgency {
 	public void publish(String news) {
 		for (var subscriber : subscribers) {
 			System.out.printf("%n════════════════%n");
-			subscriber.update(news);
+			try	{
+				subscriber.update(news);
+			} catch (RuntimeException e) {
+				System.out.println(e.getMessage());
+			}
 		}
 		System.out.printf("%n════════════════%n");
 	}

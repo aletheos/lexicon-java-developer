@@ -1,5 +1,5 @@
 package dag_15.observer.observers;
 
 public interface Observer {
-	void update(String news);
+	void update(String news) throws RuntimeException;
 }
