@@ -17,6 +17,7 @@ public class Main {
 		TT.subscribe(
 			news -> System.out.printf(
 				"""
+				 SOUP NEWS
 				%s
 				
 				But... Soup is here to stay!
