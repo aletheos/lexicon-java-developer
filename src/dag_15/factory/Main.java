@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) {
-		ArrayList<Shape> shapes = new ArrayList<>();;
+		ArrayList<Shape> shapes = new ArrayList<>();
 		try {
 			shapes.add(ShapeFactory.createShape("C"));
 			shapes.add(ShapeFactory.createShape("Triangle"));
