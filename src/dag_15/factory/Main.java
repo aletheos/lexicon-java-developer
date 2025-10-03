@@ -8,19 +8,17 @@ import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) {
-		ShapeFactory factory = new ShapeFactory();
-		ArrayList<Shape> shapes;
+		ArrayList<Shape> shapes = new ArrayList<>();;
 		try {
-			shapes = new ArrayList<>();
-			shapes.add(factory.createShape("C"));
-			shapes.add(factory.createShape("Triangle"));
-			shapes.add(factory.createShape("Rect"));
-			shapes.add(factory.createShape("e"));
-			shapes.add(factory.createShape("circle"));
-			shapes.add(factory.createShape("r"));
-			shapes.add(factory.createShape("sq"));
+			shapes.add(ShapeFactory.createShape("C"));
+			shapes.add(ShapeFactory.createShape("Triangle"));
+			shapes.add(ShapeFactory.createShape("Rect"));
+			shapes.add(ShapeFactory.createShape("f"));
+			shapes.add(ShapeFactory.createShape("circle"));
+			shapes.add(ShapeFactory.createShape("r"));
+			shapes.add(ShapeFactory.createShape("sq"));
 		} catch (MalformedShapeException e) {
-			throw new RuntimeException(e);
+			System.err.println(e.getMessage());
 		}
 		for (var shape : shapes) {
 			shape.draw();

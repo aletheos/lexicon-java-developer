@@ -3,7 +3,7 @@ package dag_15.factory.factories;
 import dag_15.factory.shapes.*;
 
 public class ShapeFactory {
-	public Shape createShape(String type) throws MalformedShapeException {
+	public static Shape createShape(String type) {
 		return switch (type.toUpperCase()) {
 			case "CIRCLE", "C" -> new Circle();
 			case "ELLIPSE", "E" -> new Ellipse();
@@ -11,7 +11,10 @@ public class ShapeFactory {
 			case "RECTANGLE", "RECT", "R" -> new Rectangle();
 			case "TRIANGLE", "TRI", "T" -> new Triangle();
 			default -> throw new MalformedShapeException(
-				"No valid shape specified. Valid shapes are (C)ircle, (E)llipse, (S)quare, (R)ectangle, and (T)riangle."
+				String.format(
+					"Invalid shape: %s! Valid shapes are (C)ircle, (E)llipse, (S)quare, (R)ectangle, and (T)riangle.",
+					type
+				)
 			);
 		};
 	}
